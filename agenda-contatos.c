@@ -103,7 +103,8 @@ void pesquisarContato() {
 	char n[100];
 	int aux = 0;
 	printf("Nome para pesquisa: ");
-	scanf("%s", &n);
+	fflush(stdin);
+	fgets(n, 100, stdin);
 	
 	// Iterando e pesquisando
 	for (int i = 0; i < totalContatos; i++) {
@@ -127,7 +128,8 @@ void removerContato() {
 	char n[100];
 	int aux = 0;
 	printf("Contato a ser removido: ");
-	scanf("%s", &n);
+	fflush(stdin);
+	fgets(n, 100, stdin);
 	
 	for (int i = 0; i < totalContatos; i++) {
 		if (strcmp(agenda[i].nome,n)==0) {
