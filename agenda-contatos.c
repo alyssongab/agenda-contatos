@@ -36,7 +36,7 @@ void menu () {
 void retornar() {
 	printf("\nDigite <Enter> para retornar ao menu principal!");
 	getchar(); // segura a mensagem
-	getchar(); // segura a tela
+
 	#ifdef _WIN32
 		system("cls"); // compilador windows
 	#else
@@ -66,7 +66,7 @@ void cadastrarContato(){
 		
 		printf("Email: "); 
 		scanf("%s", novoContato.email);
-		
+		getchar();
 		// Adicionando o contato na agenda
 		agenda[totalContatos] = novoContato;
 		totalContatos++; // Incrementa quando um contato é adicionado (variável de controle)
@@ -78,8 +78,8 @@ void cadastrarContato(){
 // Função listar contatos
 void listarContatos() {
 	if (totalContatos == 0) {
-		printf("\nAgenda vazia!");
-		printf("\nRealize um cadastro na opcao Cadastrar no menu principal!");
+		printf("Agenda vazia!");
+		printf("\nRealize um cadastro na opcao Cadastrar no menu principal!\n");
 		retornar();
 	}
 	else {
@@ -95,57 +95,71 @@ void listarContatos() {
 		retornar();
 	
 	} // else
-
 }
 
 // Função pesquisar
 void pesquisarContato() {
 	char n[100];
 	int aux = 0;
-	printf("Nome para pesquisa: ");
-	fflush(stdin);
-	fgets(n, 100, stdin);
 	
-	// Iterando e pesquisando
-	for (int i = 0; i < totalContatos; i++) {
-		if (strcmp(agenda[i].nome,n)==0) {
-			printf("\nNome: %s", agenda[i].nome);
-			printf("\nCelular:%s", agenda[i].celular);
-			printf("\nEmail:%s", agenda[i].email);
-			aux++;
-		}
+	if(totalContatos == 0) {
+		printf("Agenda vazia!");
+		printf("\nRealize um cadastro na opcao Cadastrar no menu principal!\n");
+		retornar();
+	
+	} else {
+		printf("Nome para pesquisa: ");
+		fflush(stdin);
+		fgets(n, 100, stdin);
 		
-	}
-	if (aux == 0) {
-		printf("\nRegistro nao encontrado!");
+			// Iterando e pesquisando
+			for (int i = 0; i < totalContatos; i++) {
+				if (strcmp(agenda[i].nome,n)==0) {
+					printf("\nNome: %s", agenda[i].nome);
+					printf("\nCelular:%s", agenda[i].celular);
+					printf("\nEmail:%s", agenda[i].email);
+					aux++;
+				}
+				
+			}
+			if (aux == 0) {
+				printf("\nRegistro nao encontrado!");
+			}
+			retornar();	
 	}
 	
-	retornar();	
 }
 
 // Função Remover
 void removerContato() {
 	char n[100];
 	int aux = 0;
-	printf("Contato a ser removido: ");
-	fflush(stdin);
-	fgets(n, 100, stdin);
 	
-	for (int i = 0; i < totalContatos; i++) {
-		if (strcmp(agenda[i].nome,n)==0) {
-			for (int j = i; j < totalContatos; j++) {
-				agenda[j] = agenda[j+1];
-				
-			} // for interno
-			totalContatos--;
-			printf("\nRegistro excluido com sucesso");
-			retornar();
-		} // if 
-		else {
-			printf("Registro nao encontrado!");
-			retornar();
-		}
-	} //for
+	if(totalContatos == 0) {
+		printf("Agenda vazia!");
+		printf("\nRealize um cadastro na opcao Cadastrar no menu principal!\n");
+		retornar();
+		
+	} else {
+		printf("Contato a ser removido: ");
+		fflush(stdin);
+		fgets(n, 100, stdin);
+		for (int i = 0; i < totalContatos; i++) {
+			if (strcmp(agenda[i].nome,n)==0) {
+				for (int j = i; j < totalContatos; j++) {
+					agenda[j] = agenda[j+1];
+					
+				} // for interno
+				totalContatos--;
+				printf("\nRegistro excluido com sucesso");
+				retornar();
+			} // if 
+			else {
+				printf("Registro nao encontrado!");
+				retornar();
+			}
+		} //for
+	}
 }
 
 // easterEgg
@@ -166,6 +180,7 @@ int main () {
 	while (1) {
 	menu();
 	scanf("%i", &opcao);
+	getchar();
 	
 	switch (opcao) {
 		
