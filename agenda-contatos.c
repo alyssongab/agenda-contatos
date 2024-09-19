@@ -1,4 +1,4 @@
-// Agenda de contatos V.1.0
+// Agenda de contatos V.2.0
 // Data 03.07.2024
 // Desenvolvedor: Alysson
 
@@ -8,9 +8,9 @@
 
 // Registro dos dados de contato
 typedef struct {
-	char nome[50];
-	char celular[20];
-	char email[50];
+	char nome[100];
+	char celular[30];
+	char email[100];
 	
 }Contato;
 
@@ -57,12 +57,12 @@ void cadastrarContato(){
 		printf("Nome: "); 
 //		scanf("%s", novoContato.nome); 
 		fflush(stdin);
-		fgets(novoContato.nome, 50, stdin);
+		fgets(novoContato.nome, 100, stdin);
 	
 		printf("Celular: "); 
 //		scanf("%s", novoContato.celular);
 		fflush(stdin);
-		fgets(novoContato.celular, 20, stdin);
+		fgets(novoContato.celular, 30, stdin);
 		
 		printf("Email: "); 
 		scanf("%s", novoContato.email);
@@ -100,7 +100,7 @@ void listarContatos() {
 
 // Função pesquisar
 void pesquisarContato() {
-	char n[50];
+	char n[100];
 	int aux = 0;
 	printf("Nome para pesquisa: ");
 	scanf("%s", &n);
@@ -124,7 +124,7 @@ void pesquisarContato() {
 
 // Função Remover
 void removerContato() {
-	char n[50];
+	char n[100];
 	int aux = 0;
 	printf("Contato a ser removido: ");
 	scanf("%s", &n);
@@ -151,8 +151,7 @@ void easterEgg() {
 	printf("\nSeja bem vindo(a) a agenda jedi)");
 	printf("\nDesenvolvido por: Alysson");
 	printf("\nAgenda de contatos V.2.0");
-	// Alteração do scanf para fgets no nome (Adicionar contato).
-	printf("\nData: 03.07.2024");
+	printf("\nData: 19.09.2024");
 	printf("\nObrigado(a) por usar nossa agenda!");
 	retornar();
 }
