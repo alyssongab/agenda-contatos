@@ -60,8 +60,9 @@ void cadastrarContato(){
 		fgets(novoContato.nome, 50, stdin);
 	
 		printf("Celular: "); 
-		scanf("%s", novoContato.celular); 
+//		scanf("%s", novoContato.celular);
 		fflush(stdin);
+		fgets(novoContato.celular, 20, stdin);
 		
 		printf("Email: "); 
 		scanf("%s", novoContato.email);
@@ -87,7 +88,7 @@ void listarContatos() {
 			printf("\nContato %i:\n", i+1);
 			printf("\nNome: %s", agenda[i].nome);
 			printf("Celular: %s", agenda[i].celular);
-			printf("\nEmail: %s", agenda[i].email);
+			printf("Email: %s", agenda[i].email);
 			printf("\n");
 		} //for
 		
