@@ -116,8 +116,8 @@ void pesquisarContato() {
 			for (int i = 0; i < totalContatos; i++) {
 				if (strcmp(agenda[i].nome,n)==0) {
 					printf("\nNome: %s", agenda[i].nome);
-					printf("\nCelular:%s", agenda[i].celular);
-					printf("\nEmail:%s", agenda[i].email);
+					printf("Celular:%s", agenda[i].celular);
+					printf("Email:%s\n", agenda[i].email);
 					aux++;
 				}
 				
